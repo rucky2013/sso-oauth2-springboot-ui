@@ -8,7 +8,7 @@ angular.module('hello', ['ngRoute'])
             controller: 'navigation'
         }).otherwise('/');
 
-        $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHTTPRequest';
+        $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
     })
     .controller('home', function($scope, $http) {
         $http.get('/resource/').success(function(data) {
@@ -17,7 +17,7 @@ angular.module('hello', ['ngRoute'])
     })
     .controller('navigation', function($rootScope, $scope, $http, $location){
         var authenticate = function(credentials, callback){
-            var headers = credentials ? {authorization: "Basic " + bota(credentials.username + ":" + credentials.password)} : {};
+            var headers = credentials ? {authorization: "Basic " + btoa(credentials.username + ":" + credentials.password)} : {};
             $http.get('user', {headers: headers}).success(function(data){
                 if(data.name){
                     $rootScope.authenticated = true;
