@@ -23,14 +23,6 @@ public class SsoOauth2SpringbootUiApplication {
         return user;
     }
 
-    @RequestMapping("/resource")
-    public Map<String,Object> home() {
-        Map<String,Object> model = new HashMap<String,Object>();
-        model.put("id", UUID.randomUUID().toString());
-        model.put("content", "Hello World");
-        return model;
-    }
-
     @RequestMapping("/token")
     public Map<String, String> token(HttpSession session){
         return Collections.singletonMap("token", session.getId());
