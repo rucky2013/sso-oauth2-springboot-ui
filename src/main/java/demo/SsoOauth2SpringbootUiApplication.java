@@ -25,11 +25,6 @@ public class SsoOauth2SpringbootUiApplication {
         return user;
     }
 
-    @RequestMapping("/token")
-    public Map<String, String> token(HttpSession session){
-        return Collections.singletonMap("token", session.getId());
-    }
-
     public static void main(String[] args) {
         SpringApplication.run(SsoOauth2SpringbootUiApplication.class, args);
     }
